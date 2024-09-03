@@ -1,0 +1,321 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDraftingSample"
+        xmlns:ddes="http://schemas.devdept.com/winfx/2008/xaml/control" xmlns:Eyeshot="clr-namespace:devDept.Eyeshot;assembly=devDept.Eyeshot.v2023" x:Class="WpfDraftingSample.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid >
+
+        <Ribbon Background="#f3f3f3" ApplicationMenu= "{x:Null}"  >
+            <!-- Drafting Tab -->
+            <RibbonTab Header="Drafting" Foreground="#ffffff" >
+                <RibbonGroup Header="Shapes" Background="#e3e3e3">
+
+                    <Button x:Name="AddPointButton" Content="Add Points" 
+Background="#4681f4" 
+Foreground="#ffffff" 
+Margin="10"
+Padding="20,10" 
+FontSize="20"
+FontWeight="Bold" Width="153" 
+                            Click="AddPointButton_Click"/>
+
+                    <Button x:Name="AddLineButton" Content="Add Line" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+         Padding="20,10" 
+         FontSize="20"
+         FontWeight="Bold" Width="153" Click="AddLineButton_Click" />
+
+
+                    <Button x:Name="AddArcButton" Content="Add Arc" 
+         Background="#4681f4" 
+         Foreground="#ffffff"  
+         Margin="10" 
+         Padding="20,10"
+                           FontSize="20"
+         FontWeight="Bold"
+                            Click="AddArcButton_Click"/>
+                    <Button x:Name="AddCircleButton" Content="Add Circle" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10" 
+         Padding="20,10" 
+                            FontSize="20"
+         FontWeight="Bold"
+                            Click="AddCircleButton_Click"/>
+                    <Button  x:Name="showGridButton"   Content="Grid" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10" 
+         Padding="20,10" 
+         FontWeight="Bold"
+         FontSize="20"
+         Click="showGridButton_OnClick"/>
+
+                    <Button x:Name="AddRectangleButton" Content="Add Rectangle" 
+Background="#4681f4" 
+Foreground="#ffffff" 
+Margin="10" 
+Padding="20,10" 
+                   FontSize="20"
+FontWeight="Bold"
+                   Click="AddRectangleButton_Click"/>
+
+                    <Button x:Name="PerpendcularSnapButton" Content="Perpendicular Snap" 
+Background="#4681f4" 
+Foreground="#ffffff" 
+Margin="10" 
+Padding="20,10" 
+                   FontSize="20"
+FontWeight="Bold"
+                   Click="PerpendcularSnapButton_Click"/>
+                    <Button x:Name="ExtrudeButton" Content="Extrude" 
+Background="#4681f4" 
+Foreground="#ffffff" 
+Margin="10" 
+Padding="20,10" 
+                   FontSize="20"
+FontWeight="Bold"
+                   Click="ExtrudeButton_Click"/>
+
+
+                </RibbonGroup>
+            </RibbonTab>
+
+            <!-- Snapping Tab -->
+            <RibbonTab Header="Snapping" Foreground="#1a73e8">
+                <RibbonGroup Header="Options" Background="#e3e3e3">
+                   
+                    <Button x:Name="SnapGridButton" Content="Grid Snap" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="SnapGridButton_Click"/>
+
+                    <Button x:Name="SnapObjectButton" Content="Object Snap" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="SnapObjectButton_Click"/>
+
+                    <StackPanel x:Name="snapPanel" IsEnabled="False" HorizontalAlignment="Left" Orientation="Horizontal">
+
+
+                        <RadioButton x:Name="startRadioButton" Content="Start"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+                        <RadioButton x:Name="midRadioButton" Content="Mid"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+                        <RadioButton x:Name="endRadioButton" Content="End"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+                        <RadioButton x:Name="centerRadioButton" Content="Center"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+                        <RadioButton x:Name="pointRadioButton" Content="Point"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+
+
+                    </StackPanel>
+
+                </RibbonGroup>
+            </RibbonTab>
+
+            <!--  Manipulate  -->
+            <RibbonTab Header="Manipulating" Foreground="#1a73e8">
+                        <RibbonGroup Header="Options" Background="#e3e3e3">
+                            
+                            <Button x:Name="SelectButton" Content="select" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="SelectButton_Click"/>
+
+                    <StackPanel x:Name="selectPanel" IsEnabled="False" HorizontalAlignment="Left" Orientation="Horizontal">
+
+
+                        <RadioButton x:Name="selectByPick" Content="By Pick"          Foreground="#4681f4" 
+         Margin="10"
+
+FontSize="19"
+         FontWeight="Bold"/>
+                        <RadioButton x:Name="selectByBox" Content="By Box"          Foreground="#4681f4" 
+         Margin="10" FontSize="19" FontWeight="Bold"/>
+                    </StackPanel>
+                        
+                    <Button x:Name="DeleteButton" Content="Delete" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="DeleteButton_Click"/>
+
+
+
+                    <Button x:Name="MoveButton" Content="Move" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="MoveButton_Click"/>
+
+                    <Button x:Name="RotateButton" Content="Rotate" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="RotateButton_Click"/>
+
+                    <Button x:Name="CheckParallel" Content="Check 2 lines" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="CheckParallel_Click"/>
+
+
+                </RibbonGroup>
+            </RibbonTab>
+
+
+            <!--  Manipulate  -->
+            <RibbonTab Header="Saving File" Foreground="#1a73e8">
+                <RibbonGroup Header="Options" Background="#e3e3e3">
+
+                    <Button x:Name="OpenFile" Content="Open File" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="OpenFile_Click"/>
+
+                  
+
+                    <Button x:Name="SaveFile" Content="Save File" 
+         Background="#4681f4" 
+         Foreground="#ffffff" 
+         Margin="10"
+Padding="20,10" 
+FontSize="19"
+         FontWeight="Bold"
+                            Click="SaveFile_Click"/>
+
+
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <Popup Name="MyPopup" Width="450" Height="100"
+               Placement="Mouse"  StaysOpen="False">
+            <Border Background="FloralWhite" BorderBrush="#4681f4" BorderThickness="1">
+                <StackPanel Margin="10">
+                    <TextBlock Name="PopupTextBlock" Text="" Margin="5"  FontSize="17"
+         FontWeight="Bold"/>
+                    <Button Content="Close" Width="60" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Click="Close_Button_Click"/>
+                </StackPanel>
+            </Border>
+        </Popup>
+        <DockPanel LastChildFill="False" Margin="0,140,0,0" >
+            <local:MyDesign x:Name="design1" RenderTransformOrigin="0.5,0.848" >
+                <ddes:Design.ProgressBar>
+                    <ddes:ProgressBar Lighting="False"/>
+                </ddes:Design.ProgressBar>
+                <ddes:Design.Viewports>
+                    <ddes:Viewport InitialView="Top" DisplayMode="Wireframe">
+
+                        <ddes:Viewport.Camera>
+                            <Eyeshot:Camera ZoomFactor="1.5" ProjectionMode="Orthographic"/>
+                        </ddes:Viewport.Camera>
+
+                        <ddes:Viewport.OriginSymbols>
+                            <ddes:OriginSymbol Lighting="False"/>
+                        </ddes:Viewport.OriginSymbols>
+
+                        <ddes:Viewport.CoordinateSystemIcon>
+                            <ddes:CoordinateSystemIcon Lighting="False"/>
+                        </ddes:Viewport.CoordinateSystemIcon>
+
+
+                        <ddes:Viewport.Background>
+                            <ddes:BackgroundSettings StyleMode="Solid"  TopColor="White"/>
+                        </ddes:Viewport.Background>
+
+                        <ddes:Viewport.Grids>
+                            <ddes:Grid Step="10" Lighting="False"/>
+                        </ddes:Viewport.Grids>
+
+
+                        <ddes:Viewport.ToolBars>
+                            <ddes:ToolBar Position="HorizontalTopCenter">
+                                <ddes:ToolBar.Buttons>
+                                    <ddes:HomeToolBarButton/>
+                                    <ddes:MagnifyingGlassToolBarButton/>
+                                    <ddes:ZoomWindowToolBarButton/>
+                                    <ddes:ZoomToolBarButton/>
+                                    <ddes:PanToolBarButton/>
+                                    <ddes:RotateToolBarButton/>
+                                    <ddes:ZoomFitToolBarButton/>
+                                </ddes:ToolBar.Buttons>
+                            </ddes:ToolBar>
+                        </ddes:Viewport.ToolBars>
+
+                        <ddes:Viewport.ViewCubeIcon>
+                            <ddes:ViewCubeIcon Lighting="False"/>
+                        </ddes:Viewport.ViewCubeIcon>
+                    </ddes:Viewport>
+                </ddes:Design.Viewports>
+            </local:MyDesign>
+
+
+        </DockPanel>
+
+
+
+
+
+
+    </Grid>
+
+
+
+</Window>

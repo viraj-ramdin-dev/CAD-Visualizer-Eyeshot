@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="devDept.Eyeshot.Control.Wpf" Version="2023.3.630" />
+    <PackageReference Include="devDept.Eyeshot.x64" Version="2023.3.630" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CopyModules">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\CopyModules.dll</HintPath>
+    </Reference>
+    <Reference Include="devDept.Eyeshot.x64.v2023">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\devDept.Eyeshot.x64.v2023.dll</HintPath>
+    </Reference>
+    <Reference Include="OdSwigPointCloudMgd">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\OdSwigPointCloudMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="PRC_SwigDbMgd">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\PRC_SwigDbMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="TD_SwigCoreMgd">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\TD_SwigCoreMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="TD_SwigDbMgd">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\TD_SwigDbMgd.dll</HintPath>
+    </Reference>
+    <Reference Include="TD_SwigPublishMgd">
+      <HintPath>..\..\..\..\..\..\Program Files\devDept Software\Eyeshot 2023\Bin\net60\x64\TD_SwigPublishMgd.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
